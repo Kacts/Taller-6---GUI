@@ -84,6 +84,15 @@ package "interfaz.principal" #CCFFFF {
     }
 }
 
+' Utilidad compartida para cargar imagenes desde distintos directorios de ejecucion
+package "interfaz" #E8E8FF {
+    class Imagenes {
+        - CARPETA_PROYECTO: String
+        ---
+        + cargarIcono(String): ImageIcon
+    }
+}
+
 ' Clases de la interfaz agregar
 package "interfaz.agregar" #FFCCCC {
     class VentanaAgregarRestaurante extends JFrame {
@@ -168,6 +177,7 @@ PanelBotones --> VentanaPrincipal : notifica
 PanelLista --> VentanaPrincipal : notifica
 PanelLista --> Restaurante : contiene
 PanelDetallesRestaurante --> Restaurante : muestra
+PanelDetallesRestaurante --> Imagenes : usa
 
 VentanaAgregarRestaurante --> PanelEditarRestaurante : contiene
 VentanaAgregarRestaurante --> PanelBotonesAgregar : contiene
@@ -175,12 +185,14 @@ VentanaAgregarRestaurante --> PanelMapaAgregar : contiene
 VentanaAgregarRestaurante --> VentanaPrincipal : notifica
 
 PanelBotonesAgregar --> VentanaAgregarRestaurante : notifica
+PanelMapaAgregar --> Imagenes : usa
 
 VentanaMapa --> PanelMapaVisualizar : contiene
 VentanaMapa --> VentanaPrincipal : notifica
 VentanaMapa --> Restaurante : muestra
 
 PanelMapaVisualizar --> Restaurante : dibuja
+PanelMapaVisualizar --> Imagenes : usa
 
 Diario --> Restaurante : contiene
 

@@ -8,6 +8,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import uniandes.dpoo.swing.interfaz.Imagenes;
 import uniandes.dpoo.swing.mundo.Restaurante;
 
 @SuppressWarnings("serial")
@@ -85,7 +86,6 @@ public class PanelDetallesRestaurante extends JPanel
      */
     private ImageIcon buscarIconoCalificacion( int calificacion )
     {
-        String imagen = "./imagenes/stars" + calificacion + ".png";
-        return new ImageIcon( imagen );
+        return Imagenes.cargarIcono( "stars" + calificacion + ".png" );
     }
 }

@@ -96,10 +96,7 @@ src/uniandes/dpoo/swing/
 ### Método 1: Desde línea de comandos
 ```bash
 cd "Taller Swing Restaurantes Esqueleto"
-javac -d bin src/uniandes/dpoo/swing/mundo/*.java
-javac -d bin src/uniandes/dpoo/swing/interfaz/principal/*.java
-javac -d bin src/uniandes/dpoo/swing/interfaz/agregar/*.java
-javac -d bin src/uniandes/dpoo/swing/interfaz/mapa/*.java
+javac -d bin src/uniandes/dpoo/swing/mundo/*.java src/uniandes/dpoo/swing/interfaz/*.java src/uniandes/dpoo/swing/interfaz/principal/*.java src/uniandes/dpoo/swing/interfaz/agregar/*.java src/uniandes/dpoo/swing/interfaz/mapa/*.java
 java -cp bin uniandes.dpoo.swing.interfaz.principal.VentanaPrincipal
 ```
 

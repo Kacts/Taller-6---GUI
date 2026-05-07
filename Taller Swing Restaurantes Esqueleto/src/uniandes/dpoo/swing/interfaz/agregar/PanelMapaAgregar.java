@@ -6,10 +6,11 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+
+import uniandes.dpoo.swing.interfaz.Imagenes;
 
 @SuppressWarnings("serial")
 public class PanelMapaAgregar extends JPanel implements MouseListener
@@ -31,7 +32,7 @@ public class PanelMapaAgregar extends JPanel implements MouseListener
 
     public PanelMapaAgregar( )
     {
-        this.labMapa = new JLabel( new ImageIcon( "./imagenes/mapa.png" ) );
+        this.labMapa = new JLabel( Imagenes.cargarIcono( "mapa.png" ) );
         labMapa.setBorder( new LineBorder( Color.DARK_GRAY ) );
         labMapa.addMouseListener( this );
         add( labMapa );

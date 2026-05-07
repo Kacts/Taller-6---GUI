@@ -52,10 +52,7 @@ cd "Taller Swing Restaurantes Esqueleto"
 
 2. Compila los archivos Java:
 ```bash
-javac -d bin src/uniandes/dpoo/swing/mundo/*.java
-javac -d bin src/uniandes/dpoo/swing/interfaz/principal/*.java
-javac -d bin src/uniandes/dpoo/swing/interfaz/agregar/*.java
-javac -d bin src/uniandes/dpoo/swing/interfaz/mapa/*.java
+javac -d bin src/uniandes/dpoo/swing/mundo/*.java src/uniandes/dpoo/swing/interfaz/*.java src/uniandes/dpoo/swing/interfaz/principal/*.java src/uniandes/dpoo/swing/interfaz/agregar/*.java src/uniandes/dpoo/swing/interfaz/mapa/*.java
 ```
 
 3. Ejecuta la aplicación:
