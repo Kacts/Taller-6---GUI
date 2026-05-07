@@ -1,0 +1,187 @@
+@startuml ClassDiagram
+
+!theme plain
+' Definir colores para mejor visualización
+skinparam classBackgroundColor #FEFDF0
+skinparam classBorderColor #333333
+skinparam arrowColor #333333
+
+' Clases del modelo
+package "mundo" #FFFFCC {
+    class Restaurante {
+        - nombre: String
+        - calificacion: int
+        - coordenadaX: int
+        - coordenadaY: int
+        + visitado: boolean
+        ---
+        + Restaurante(String, int, int, int, boolean)
+        + getNombre(): String
+        + getCalificacion(): int
+        + getX(): int
+        + getY(): int
+        + isVisitado(): boolean
+        + toString(): String
+    }
+
+    class Diario {
+        - restaurantes: List<Restaurante>
+        ---
+        + Diario()
+        + getRestaurantes(boolean): List<Restaurante>
+        + agregarRestaurante(Restaurante): void
+    }
+}
+
+' Clases de la interfaz principal
+package "interfaz.principal" #CCFFFF {
+    class VentanaPrincipal extends JFrame {
+        - mundo: Diario
+        - pBotones: PanelBotones
+        - pDetalles: PanelDetallesRestaurante
+        - pLista: PanelLista
+        - ventanaMapa: VentanaMapa
+        - ventanaAgregar: VentanaAgregarRestaurante
+        ---
+        + VentanaPrincipal(Diario)
+        + mostrarVentanaNuevoRestaurante(): void
+        + mostrarVentanaMapa(): void
+        + agregarRestaurante(String, int, int, int, boolean): void
+        + getRestaurantes(boolean): List<Restaurante>
+        + cambiarRestauranteSeleccionado(Restaurante): void
+        + main(String[]): void
+    }
+
+    class PanelBotones extends JPanel implements ActionListener {
+        - butNuevo: JButton
+        - butVerTodos: JButton
+        - ventanaPrincipal: VentanaPrincipal
+        ---
+        + PanelBotones(VentanaPrincipal)
+        + actionPerformed(ActionEvent): void
+    }
+
+    class PanelLista extends JPanel implements ListSelectionListener {
+        - listaDeRestaurantes: JList<Restaurante>
+        - dataModel: DefaultListModel<Restaurante>
+        - ventanaPrincipal: VentanaPrincipal
+        ---
+        + PanelLista(VentanaPrincipal)
+        + actualizarRestaurantes(List<Restaurante>): void
+        + valueChanged(ListSelectionEvent): void
+        + seleccionarRestaurante(Restaurante): void
+    }
+
+    class PanelDetallesRestaurante extends JPanel {
+        - labNombre: JLabel
+        - labCalificacion: JLabel
+        - chkVisitado: JCheckBox
+        ---
+        + PanelDetallesRestaurante()
+        - actualizarRestaurante(String, int, boolean): void
+        + actualizarRestaurante(Restaurante): void
+        - buscarIconoCalificacion(int): ImageIcon
+    }
+}
+
+' Clases de la interfaz agregar
+package "interfaz.agregar" #FFCCCC {
+    class VentanaAgregarRestaurante extends JFrame {
+        - panelDetalles: PanelEditarRestaurante
+        - panelBotones: PanelBotonesAgregar
+        - panelMapa: PanelMapaAgregar
+        - ventanaPrincipal: VentanaPrincipal
+        ---
+        + VentanaAgregarRestaurante(VentanaPrincipal)
+        + agregarRestaurante(): void
+        + cerrarVentana(): void
+    }
+
+    class PanelEditarRestaurante extends JPanel {
+        - txtNombre: JTextField
+        - cbbCalificacion: JComboBox<String>
+        - cbbVisitado: JComboBox<String>
+        ---
+        + PanelEditarRestaurante()
+        + getVisitado(): boolean
+        + getCalificacion(): int
+        + getNombre(): String
+    }
+
+    class PanelBotonesAgregar extends JPanel implements ActionListener {
+        - butNuevo: JButton
+        - butCerrar: JButton
+        - ventanaPrincipal: VentanaAgregarRestaurante
+        ---
+        + PanelBotonesAgregar(VentanaAgregarRestaurante)
+        + actionPerformed(ActionEvent): void
+    }
+
+    class PanelMapaAgregar extends JPanel implements MouseListener {
+        - labMapa: JLabel
+        - x: int
+        - y: int
+        ---
+        + PanelMapaAgregar()
+        + getCoordenadas(): int[]
+        + paint(Graphics): void
+        + mouseClicked(MouseEvent): void
+        + mousePressed(MouseEvent): void
+        + mouseReleased(MouseEvent): void
+        + mouseEntered(MouseEvent): void
+        + mouseExited(MouseEvent): void
+    }
+}
+
+' Clases de la interfaz mapa
+package "interfaz.mapa" #CCFFCC {
+    class VentanaMapa extends JFrame implements ActionListener {
+        - panelMapa: PanelMapaVisualizar
+        - radioTodos: JRadioButton
+        - radioVisitados: JRadioButton
+        - ventanaPrincipal: VentanaPrincipal
+        ---
+        + VentanaMapa(VentanaPrincipal, List<Restaurante>)
+        + actionPerformed(ActionEvent): void
+        + actualizarRestaurantes(): void
+    }
+
+    class PanelMapaVisualizar extends JPanel {
+        - labMapa: JLabel
+        - restaurantes: List<Restaurante>
+        ---
+        + PanelMapaVisualizar()
+        + paint(Graphics): void
+        + actualizarMapa(List<Restaurante>): void
+    }
+}
+
+' Relaciones de composición y asociación
+VentanaPrincipal --> Diario : tiene
+VentanaPrincipal --> PanelBotones : contiene
+VentanaPrincipal --> PanelLista : contiene
+VentanaPrincipal --> PanelDetallesRestaurante : contiene
+VentanaPrincipal --> VentanaMapa : abre
+VentanaPrincipal --> VentanaAgregarRestaurante : abre
+
+PanelBotones --> VentanaPrincipal : notifica
+PanelLista --> VentanaPrincipal : notifica
+PanelLista --> Restaurante : contiene
+PanelDetallesRestaurante --> Restaurante : muestra
+
+VentanaAgregarRestaurante --> PanelEditarRestaurante : contiene
+VentanaAgregarRestaurante --> PanelBotonesAgregar : contiene
+VentanaAgregarRestaurante --> PanelMapaAgregar : contiene
+VentanaAgregarRestaurante --> VentanaPrincipal : notifica
+
+PanelBotonesAgregar --> VentanaAgregarRestaurante : notifica
+
+VentanaMapa --> PanelMapaVisualizar : contiene
+VentanaMapa --> VentanaPrincipal : notifica
+VentanaMapa --> Restaurante : muestra
+
+PanelMapaVisualizar --> Restaurante : dibuja
+
+Diario --> Restaurante : contiene
+
+@enduml
