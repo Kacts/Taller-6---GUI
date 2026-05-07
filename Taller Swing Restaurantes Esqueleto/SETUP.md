@@ -47,6 +47,7 @@ Se proporcionan los siguientes documentos:
 
 **Documentación:**
 - ✅ `README.md` - Descripción completa de la aplicación, instrucciones de compilación y ejecución, guía de uso
+- ✅ `InstruccionesEjecucion.pdf` - Instrucciones organizadas para ejecutar la aplicación
 - ✅ `SETUP.md` - Este archivo, resumen de completación
 
 ## Archivos Entregables
@@ -82,6 +83,7 @@ src/uniandes/dpoo/swing/
 
 ### Documentación Incluida
 - ✅ `README.md` - Guía de uso y ejecución
+- ✅ `InstruccionesEjecucion.pdf` - Instrucciones de ejecución en PDF
 - ✅ `ClassDiagram.png` - Imagen del diagrama de clases
 - ✅ `ClassDiagram.pdf` - Versión PDF del diagrama de clases
 - ✅ `SETUP.md` - Este archivo de resumen

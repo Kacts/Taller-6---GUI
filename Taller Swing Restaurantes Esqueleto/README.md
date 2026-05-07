@@ -35,7 +35,7 @@ imagenes/
 └── mapa.png
 ```
 
-El proyecto también incluye `ClassDiagram.png` y `ClassDiagram.pdf` con el diagrama de clases de la aplicación.
+El proyecto también incluye `ClassDiagram.png` y `ClassDiagram.pdf` con el diagrama de clases de la aplicación, además de `InstruccionesEjecucion.pdf` con las instrucciones de ejecución.
 
 ## Requisitos
 - Java 8 o superior
