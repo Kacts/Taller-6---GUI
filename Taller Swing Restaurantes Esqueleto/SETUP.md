@@ -42,9 +42,8 @@ Se completaron todos los TODOs en los siguientes archivos:
 Se proporcionan los siguientes documentos:
 
 **Diagrama de Clases:**
-- ✅ `ClassDiagram.puml` - Diagrama en formato PlantUML con todas las clases, atributos, métodos, relaciones y interfaces
 - ✅ `ClassDiagram.png` - Imagen del diagrama lista para entregar
-- ✅ `DIAGRAM_INSTRUCTIONS.md` - Instrucciones detalladas para generar la imagen PNG desde el archivo PlantUML
+- ✅ `ClassDiagram.pdf` - Versión PDF del diagrama lista para entregar
 
 **Documentación:**
 - ✅ `README.md` - Descripción completa de la aplicación, instrucciones de compilación y ejecución, guía de uso
@@ -83,8 +82,8 @@ src/uniandes/dpoo/swing/
 
 ### Documentación Incluida
 - ✅ `README.md` - Guía de uso y ejecución
-- ✅ `ClassDiagram.puml` - Diagrama de clases en PlantUML
-- ✅ `DIAGRAM_INSTRUCTIONS.md` - Cómo generar la imagen del diagrama
+- ✅ `ClassDiagram.png` - Imagen del diagrama de clases
+- ✅ `ClassDiagram.pdf` - Versión PDF del diagrama de clases
 - ✅ `SETUP.md` - Este archivo de resumen
 
 ### Archivos de Configuración
